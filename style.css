@@ -6063,3 +6063,31 @@ button:focus-visible {
         animation-iteration-count: infinite !important;
     }
 }
+/* =========================================================
+   RANJOS CAPITAL — EXPLORE COLLECTION MOBILE ROTATION
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .explore-circle,
+    .explore-ring,
+    .explore-rotate,
+    .rotating-circle,
+    .circle-text {
+        animation: ranjosExploreSpin 12s linear infinite !important;
+        animation-play-state: running !important;
+        will-change: transform !important;
+        -webkit-transform-origin: center center !important;
+        transform-origin: center center !important;
+    }
+
+    @keyframes ranjosExploreSpin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}
