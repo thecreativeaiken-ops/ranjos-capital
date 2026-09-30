@@ -6044,3 +6044,22 @@ button:focus-visible {
         }
     }
 }
+/* =========================================================
+   RANJOS CAPITAL — EXPLORE COLLECTION MOBILE ROTATION FIX
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .collection-circle,
+    .collection-ring,
+    .collection-orbit {
+        animation-play-state: running !important;
+        will-change: transform;
+    }
+
+    .collection-circle {
+        animation-duration: 10s !important;
+        animation-timing-function: linear !important;
+        animation-iteration-count: infinite !important;
+    }
+}
