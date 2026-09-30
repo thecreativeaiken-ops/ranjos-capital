@@ -5686,3 +5686,277 @@ button:focus-visible {
         content-visibility: auto;
     }
 }
+/* =========================================================
+   RANJOS CAPITAL — MOBILE MOTION FIX
+   Keeps the desktop animations untouched
+   Restores smooth animations on phones
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   MOBILE TICKER / MOVING FASHION WORDS
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    /*
+       Force the moving text/ticker to remain animated
+       on mobile devices.
+    */
+
+    .ticker,
+    .marquee,
+    .scrolling-text {
+        overflow: hidden !important;
+        position: relative !important;
+    }
+
+    .ticker-track,
+    .marquee-track,
+    .scrolling-track,
+    .ticker-content,
+    .marquee-content {
+        display: flex !important;
+        width: max-content !important;
+        animation-play-state: running !important;
+        will-change: transform;
+        transform: translate3d(0, 0, 0);
+    }
+
+    /*
+       If your existing animation uses these names,
+       keep them running on mobile.
+    */
+
+    .ticker-track {
+        animation-play-state: running !important;
+    }
+
+    .marquee-track {
+        animation-play-state: running !important;
+    }
+
+    .scrolling-track {
+        animation-play-state: running !important;
+    }
+
+
+    /* -----------------------------------------------------
+       COMMON ANIMATION NAMES
+       ----------------------------------------------------- */
+
+    .ticker-track,
+    .marquee-track,
+    .scrolling-track {
+
+        animation-duration: 24s !important;
+        animation-timing-function: linear !important;
+        animation-iteration-count: infinite !important;
+        animation-play-state: running !important;
+
+    }
+
+
+    /*
+       If the ticker uses translateX animation,
+       this ensures it continues smoothly.
+    */
+
+    @keyframes ranjosMobileTicker {
+
+        0% {
+            transform: translate3d(0, 0, 0);
+        }
+
+        100% {
+            transform: translate3d(-50%, 0, 0);
+        }
+
+    }
+
+
+    /*
+       Apply the mobile ticker animation only where
+       an element has a moving-track class.
+    */
+
+    .ticker-track.mobile-motion,
+    .marquee-track.mobile-motion,
+    .scrolling-track.mobile-motion {
+        animation-name: ranjosMobileTicker !important;
+    }
+
+
+    /* -----------------------------------------------------
+       ROTATING EXPLORE / CONNECTION CIRCLE
+       ----------------------------------------------------- */
+
+    .explore-circle,
+    .explore-ring,
+    .explore-rotate,
+    .rotating-circle,
+    .circle-text,
+    .circle-text svg,
+    .social-toggle svg {
+
+        animation-play-state: running !important;
+        will-change: transform;
+
+    }
+
+
+    /*
+       Restore continuous rotation for circular elements.
+    */
+
+    .explore-circle {
+        animation: ranjosExploreSpin 16s linear infinite !important;
+    }
+
+    .explore-ring {
+        animation: ranjosExploreSpin 16s linear infinite !important;
+    }
+
+    .explore-rotate {
+        animation: ranjosExploreSpin 16s linear infinite !important;
+    }
+
+    .rotating-circle {
+        animation: ranjosExploreSpin 16s linear infinite !important;
+    }
+
+    .circle-text {
+        animation: ranjosExploreSpin 16s linear infinite !important;
+    }
+
+
+    @keyframes ranjosExploreSpin {
+
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+
+    }
+
+
+    /* -----------------------------------------------------
+       CONNECTION BUTTON
+       ----------------------------------------------------- */
+
+    .social-toggle {
+
+        animation:
+            ranjosConnectionFloat 4s ease-in-out infinite !important;
+
+        will-change: transform;
+
+    }
+
+
+    @keyframes ranjosConnectionFloat {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-3px);
+        }
+
+    }
+
+
+    /*
+       Keep the toggle's internal rotating element
+       rotating independently.
+    */
+
+    .social-toggle .circle-text,
+    .social-toggle .rotating-circle,
+    .social-toggle .explore-circle,
+    .social-toggle svg {
+
+        animation-play-state: running !important;
+
+    }
+
+
+    /* -----------------------------------------------------
+       PHONE PERFORMANCE
+       ----------------------------------------------------- */
+
+    .ticker-track,
+    .marquee-track,
+    .scrolling-track,
+    .explore-circle,
+    .explore-ring,
+    .explore-rotate,
+    .rotating-circle,
+    .circle-text,
+    .social-toggle {
+
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .ticker-track,
+    .marquee-track,
+    .scrolling-track {
+
+        animation-duration: 26s !important;
+
+    }
+
+    .explore-circle,
+    .explore-ring,
+    .explore-rotate,
+    .rotating-circle,
+    .circle-text {
+
+        animation-duration: 18s !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   IMPORTANT:
+   Only disable these animations if the USER'S DEVICE
+   explicitly requests reduced motion.
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ticker-track,
+    .marquee-track,
+    .scrolling-track,
+    .explore-circle,
+    .explore-ring,
+    .explore-rotate,
+    .rotating-circle,
+    .circle-text,
+    .social-toggle {
+
+        animation: none !important;
+
+    }
+
+}
