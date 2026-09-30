@@ -5960,3 +5960,30 @@ button:focus-visible {
     }
 
 }
+@media (max-width: 768px) {
+    .ticker-section {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .ticker-track {
+        display: flex;
+        width: max-content;
+        animation: tickerMove 15s linear infinite;
+        will-change: transform;
+    }
+
+    .ticker-item {
+        flex-shrink: 0;
+    }
+
+    @keyframes tickerMove {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-50%);
+        }
+    }
+}
