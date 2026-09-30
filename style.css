@@ -6119,3 +6119,9 @@ button:focus-visible {
         }
     }
 }
+/* Move Explore arrow slightly down on mobile */
+@media (max-width: 900px) {
+    .hero-circle strong {
+        transform: translateY(6px) !important;
+    }
+}
