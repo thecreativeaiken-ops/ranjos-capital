@@ -6018,3 +6018,29 @@ button:focus-visible {
         }
     }
 }
+/* MOBILE BOTTOM MARQUEE FIX */
+@media (max-width: 900px) {
+
+    .contact-marquee {
+        overflow: hidden !important;
+        width: 100% !important;
+    }
+
+    .contact-marquee-track {
+        display: inline-flex !important;
+        width: max-content !important;
+        white-space: nowrap !important;
+        animation: bottomMarqueeMobile 14s linear infinite !important;
+        will-change: transform;
+    }
+
+    @keyframes bottomMarqueeMobile {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-50%);
+        }
+    }
+}
