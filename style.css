@@ -5987,3 +5987,34 @@ button:focus-visible {
         }
     }
 }
+/* MOBILE TICKER FIX */
+@media (max-width: 900px) {
+
+    .ticker-section {
+        overflow: hidden !important;
+        width: 100% !important;
+    }
+
+    .ticker-track {
+        display: flex !important;
+        width: max-content !important;
+        flex-wrap: nowrap !important;
+        animation: tickerMobile 12s linear infinite !important;
+        will-change: transform;
+    }
+
+    .ticker-item {
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+    }
+
+    @keyframes tickerMobile {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-50%);
+        }
+    }
+}
